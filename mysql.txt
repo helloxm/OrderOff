@@ -1,0 +1,28 @@
+<?php
+$username="root";
+$userpass="123456";
+$dbhost="localhost";
+$dbdatabase="offorder";
+
+$db=new mysqli($dbhost,$username,$userpass,$dbdatabase);
+if(mysqli_connect_error()){
+	echo 'Could not connect to database.';
+	exit;
+}
+mysqli_query($db,"SET NAMES 'utf8'");
+
+$result=$db->query("SELECT * FROM orderinfo");
+$resultarr = array();
+while($row = $result->fetch_array()){
+$resultarr[] = $row ;
+}
+$data = json_encode( $resultarr );
+//echo $data;
+	?>
+<script>
+var obj = <?php echo $data;?>
+//var obj =json_encode( $resultarr );
+for(var i=0;i<obj.length;i++){
+document.write(obj[i].[ÊôÐÔ])
+}
+</script>
