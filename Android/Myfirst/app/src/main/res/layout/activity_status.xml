@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tableLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:shrinkColumns="*"
+    android:stretchColumns="*"
+    android:collapseColumns="*"
+    >
+    <TableLayout
+        android:orientation="vertical"
+        android:id="@+id/table"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+        <TableRow android:gravity="right">
+            <View android:layout_width="1dip" android:background="#FF909090" />
+            <TextView
+                android:id="@+id/tv1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="30px"
+                android:text="预约时间"
+                android:gravity="center"
+                android:paddingTop="10dp" />
+            <View android:layout_width="1dip" android:background="#FF909090"
+                android:paddingTop="10dp" />
+            <TextView
+                android:id="@+id/tv2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textSize="30px"
+                android:text="医生姓名"
+                />
+            <View android:layout_width="1dip" android:background="#FF909090" />
+            <TextView
+                android:id="@+id/tv3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textSize="30px"
+                android:text="状态" />
+            <View android:layout_width="1dip" android:background="#FF909090" />
+        </TableRow>
+
+    </TableLayout>
+
+</TableLayout>
+
