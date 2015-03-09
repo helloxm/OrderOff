@@ -23,8 +23,8 @@
 //$url  = "http://localhost/summit.php";
 //$data = json_encode(array(array('id'=>'677', 'name'=>'ee'), array('id'=>'099', 'name'=>'ee')  )); 
 
-//$url  = "http://localhost/register.php";  //用户注册
-//$data = json_encode( array( 'user_name'=>'vvvv', 'card_id'=>'1', 'mobile_number'=>'137222','password'=>'123456')  );
+$url  = "http://localhost/register.php";  //用户注册
+$data = json_encode( array( 'user_name'=>'aaa', 'card_id'=>'45', 'mobile_number'=>'554','password'=>'123456')  );
 
 //$url  = "http://localhost/login.php"; 
 //$data = json_encode( array( 'card_id'=>'0000001','password'=>'123456') );//用户登陆
