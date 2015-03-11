@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+
+    android:weightSum="1">
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="384dp"
+        android:layout_gravity="fill_horizontal"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+
+        >
+
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="#d94c77b6"
+            >
+
+        <TextView
+        android:layout_width="1dp"
+        android:layout_weight="2.82"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:gravity="center"
+
+
+            />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="58dp"
+                android:text="登入"
+                android:textSize="30sp"
+                android:gravity="center"
+
+                />
+</LinearLayout>
+    </RelativeLayout>
+
+    <!-- padding 内边距   layout_margin 外边距
+  		android:layout_alignParentTop 布局的位置是否处于顶部 -->
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1.50"></LinearLayout>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.50"></TableRow>
+
+    <ImageView
+        android:id="@+id/image_1"
+        android:layout_width="169dp"
+        android:layout_height="169dp"
+        android:src="@drawable/hostipal"
+        android:layout_gravity="center_horizontal"
+        ></ImageView>
+    <RelativeLayout
+        android:id="@+id/login_div"
+        android:layout_width="fill_parent"
+        android:layout_height="219dp"
+        android:padding="15dip"
+        android:layout_margin="15dip"
+        >
+        <!-- 账号 -->
+        <TextView
+            android:id="@+id/login_user_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="5dp"
+            android:text="用 户："
+            android:textSize="20dp" />
+        <EditText
+            android:id="@+id/username_edit"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/login_user_input"
+            android:layout_toEndOf="@+id/login_user_input" />
+        <!-- 密码 text -->
+        <TextView
+            android:id="@+id/login_password_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="密 码："
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:textSize="20dp" />
+
+        <EditText
+            android:inputType="textPassword"
+            android:id="@+id/password_edit"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/login_password_input"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignLeft="@+id/username_edit"
+            android:layout_alignStart="@+id/username_edit" />
+        <!-- 登录button -->
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="登陆"
+            android:background="#ff7a89ff"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:onClick="onClickok1"/>
+    </RelativeLayout>
+
+    <Button
+        android:layout_width="64dp"
+        android:layout_height="35dp"
+        android:text="注册"
+        android:background="#fffffeeb"
+        android:onClick="onClickok2"
+        android:layout_alignParentTop="true"
+        android:layout_gravity="right"
+
+        android:layout_marginRight="50dp" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="119dp" ></RelativeLayout>
+</LinearLayout>

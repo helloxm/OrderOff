@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+
+    >
+
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="228dp"
+        android:layout_gravity="fill_horizontal"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        >
+
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="#d94c77b6"
+            >
+
+            <Button
+                android:id="@+id/back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="返回"
+                android:textSize="18sp"
+                android:onClick="onClickok1"
+                />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="注册"
+                android:textSize="30sp"
+                android:gravity="center"
+
+                />
+
+
+        </LinearLayout>
+    </RelativeLayout>
+
+
+    <TableRow
+        android:id="@+id/tableRow1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="15dp"
+            android:id="@+id/maneTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="姓  名："
+            android:gravity="right"
+            android:textSize="10pt" />
+
+        <EditText
+            android:id="@+id/nameEt"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+
+            android:selectAllOnFocus="true"
+            android:layout_column="1"
+            android:layout_gravity="bottom" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tableRow2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <TextView
+
+            android:id="@+id/cardidTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="用  户："
+            android:textSize="10pt"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="15dp"
+            android:gravity="right" />
+        <EditText
+            android:id="@+id/cardidEt"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:password="true"
+            android:layout_gravity="bottom"
+        />
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tableRow3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="15dp"
+            android:id="@+id/mobleTv"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="联系方式："
+            android:textSize="10pt"
+            android:gravity="right"
+          />
+        <EditText
+            android:id="@+id/mobleEt"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:selectAllOnFocus="true"
+            android:phoneNumber="true"
+            android:layout_gravity="bottom" />
+    </TableRow>
+    <TableRow
+        android:id="@+id/tableRow4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="15dp"
+            android:id="@+id/passwordTv"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="密码："
+            android:textSize="10pt"
+            android:gravity="right"
+
+            />
+        <EditText
+            android:id="@+id/passwordEt1"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:selectAllOnFocus="true"
+            android:phoneNumber="true"
+            android:layout_gravity="bottom"
+            />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        <TextView
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="15dp"
+            android:id="@+id/passwordTv2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="确认密码："
+            android:textSize="10pt"
+            android:gravity="right" />
+        <EditText
+            android:id="@+id/passwordEt2"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:selectAllOnFocus="true"
+            android:phoneNumber="true"
+            android:layout_gravity="bottom"
+          />
+    </TableRow>
+
+
+
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+
+        <Button
+
+            android:gravity="center"
+            android:layout_width="269dp"
+            android:layout_height="wrap_content"
+            android:text="注册"
+            android:layout_column="1"
+            android:layout_gravity="bottom"
+            android:onClick="onClickok2"
+            android:background="#ff75ff55"/>
+    </TableRow>
+
+</TableLayout>
+
