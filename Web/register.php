@@ -1,12 +1,12 @@
 <?php 
 include("connect.php");
-include("test3.php");
+//include("test3.php");
 
 $json_string = file_get_contents("php://input");
 
 $json_string=stripslashes($json_string);
 
-write_testinfo($json_string);
+//write_testinfo($json_string);
 
 $users = json_decode($json_string, true);
 

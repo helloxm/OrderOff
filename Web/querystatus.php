@@ -7,7 +7,7 @@ $json_string=stripslashes($json_string);
 $users = json_decode($json_string, true);
 $temId = $users['card_id'];
 
-$result=$db->query("SELECT card_id,order_time,status FROM orderinfo where card_id='$temId'");
+$result=$db->query("SELECT card_id,order_date, order_time,status FROM orderinfo where card_id='$temId'");
 
 $row = $result->fetch_assoc();
 $data = json_encode( $row  );
