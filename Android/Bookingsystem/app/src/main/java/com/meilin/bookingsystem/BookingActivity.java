@@ -1,14 +1,19 @@
 package com.meilin.bookingsystem;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import org.apache.http.HttpResponse;
@@ -32,11 +37,12 @@ import java.io.UnsupportedEncodingException;
  */
 public class BookingActivity extends Activity {
 
-
     private EditText classEt= null;
     private EditText doctorEt = null;
     private EditText timedayEt= null;
     private EditText timeEt = null;
+    private static int ret_code = 0;
+    private ProgressDialog pd;
     private String TAG = "EnterActivity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +54,7 @@ public class BookingActivity extends Activity {
         doctorEt = (EditText)this .findViewById(R.id.doctorEt);
         timedayEt = (EditText)this .findViewById(R.id.timedayEt);
         timeEt = (EditText)this .findViewById(R.id.timeEt);
+
     }
     public void onClickok1(View view) {
 
@@ -56,9 +63,7 @@ public class BookingActivity extends Activity {
 
 
     public void onClickok2(View view) {
-        if (SumbitData()) {
-            startActivityForResult(new Intent(BookingActivity.this, StatusActivity.class), 1);
-        }
+      SumbitData();
     }
 
     public boolean  SumbitData()
@@ -73,7 +78,7 @@ public class BookingActivity extends Activity {
             Toast.makeText(this, "错误！", Toast.LENGTH_SHORT).show();
             return false;
         }
-
+        pd = ProgressDialog.show(BookingActivity.this, "标题", "加载中，请稍后……");
         new Thread( new Runnable() {
             @Override
             public void run() {
@@ -95,14 +100,15 @@ public class BookingActivity extends Activity {
                     // 绑定到请求 Entry
                     StringEntity se = new StringEntity(param.toString());
                     request.setEntity(se);  //设置请求参数setEntity（）
-
-
+                   //延时
                     HttpParams connParams = new BasicHttpParams();
                     HttpConnectionParams.setConnectionTimeout(connParams, 5 * 1000);
                     HttpConnectionParams.setSoTimeout(connParams, 5 * 1000);
                     HttpClient client = new DefaultHttpClient(connParams);
+
                     Log.e(TAG, "SEND");
                     Log.e(TAG, param.toString());
+
                     HttpResponse httpResponse = client.execute(request);  // 发送请求，返回HttpResponse
                     Log.e(TAG, "retrurn---:" + httpResponse.getStatusLine().getStatusCode());
                     // 得到应答的字符串，这也是一个 JSON 格式保存的数据
@@ -115,13 +121,8 @@ public class BookingActivity extends Activity {
                     String strRetCode = result.get("ret_code").toString();
 
                     Log.e(TAG, "return :" + strRetCode);
-                    int iRetCode = Integer.valueOf(strRetCode).intValue();
-                    if (iRetCode == 0) {
-                        Log.e(TAG, "successful");
-                    } else {
-                        Log.e(TAG, "delfault");
-                    }
-
+                    ret_code = Integer.valueOf(strRetCode).intValue();
+                    handler.sendEmptyMessage(0);// 执行耗时的方法之后发送消给handler
                 } catch (UnsupportedEncodingException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
@@ -139,6 +140,26 @@ public class BookingActivity extends Activity {
 
         return true;
     }
+
+    private Handler handler =new Handler() {
+        @Override
+        public void handleMessage(Message msg) {// handler接收到消息后就会执行此方法
+            super.handleMessage(msg);
+            pd.dismiss();// 关闭ProgressDialog
+            if(ret_code!=0)
+            {
+                Toast.makeText(BookingActivity.this, "预约失败！", Toast.LENGTH_SHORT).show();
+                Log.e(TAG, " login failed!");
+            } else {
+                Intent intent = new Intent();
+                intent.setClass(BookingActivity.this, StatusActivity.class);
+                startActivityForResult(intent, ret_code);
+
+                Toast.makeText(BookingActivity.this, "预约成功！", Toast.LENGTH_SHORT).show();
+                Log.e(TAG, " login successfully!");
+            }
+        }
+    };
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

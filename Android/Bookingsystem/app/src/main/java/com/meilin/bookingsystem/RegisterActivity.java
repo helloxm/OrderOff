@@ -55,11 +55,31 @@ public class RegisterActivity extends Activity {
         startActivityForResult(new Intent(RegisterActivity.this, EnterActivity.class), 1);
     }
 
-    public void onClickok2(View view) {
-        if (SumbitData()) {
-            startActivityForResult(new Intent(RegisterActivity.this, EnterActivity.class), 1);
-        }
+//    public void onClickok2(View view) {
+//        if (SumbitData()) {
+//
+//            startActivityForResult(new Intent(RegisterActivity.this, EnterActivity.class), 1);
+//        }
+//    }
+public void onClickok2(View view) {
+    if (SumbitData()) {
+        Intent intent = new Intent();
+        intent.setClass(RegisterActivity.this, EnterActivity.class);
+        Bundle bundle = new Bundle();
+        intent.putExtras(bundle);//将Bundle添加到Intent,也可以在Bundle中添加相应数据传递给下个页面,例如：bundle.putString("abc", "bbb");
+
+        startActivityForResult(intent, 0);      // 跳转并要求返回值，0代表请求值(可以随便写)
+
     }
+}
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//        if (requestCode == 0 && resultCode == Activity.RESULT_OK) {
+//            Bundle bundle = data.getExtras();
+//            gameView.backString = bundle.getString("aaa");
+//            Toast.makeText(this, "联系方式错误！", Toast.LENGTH_SHORT).show();
+//        }
 
 
     public boolean  SumbitData()
@@ -112,12 +132,16 @@ public class RegisterActivity extends Activity {
                     Log.e(TAG, "ONE");
                     JSONObject object = new JSONObject(retSrc);
                     Log.e(TAG, "TWO");
+
                     String strRetCode = object.get("ret_code").toString();
 
                     Log.e(TAG, "return");
                     int iRetCode = Integer.valueOf(strRetCode).intValue();
+
                     if (iRetCode == 0) {
+
                         Log.e(TAG, "successful");
+
                     } else {
                         Log.e(TAG, "delfault");
                     }

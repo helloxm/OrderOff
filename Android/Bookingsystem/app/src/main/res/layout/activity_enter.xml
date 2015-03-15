@@ -84,7 +84,8 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/login_user_input"
-            android:layout_toEndOf="@+id/login_user_input" />
+            android:layout_toEndOf="@+id/login_user_input"
+ />
         <!-- 密码 text -->
         <TextView
             android:id="@+id/login_password_input"

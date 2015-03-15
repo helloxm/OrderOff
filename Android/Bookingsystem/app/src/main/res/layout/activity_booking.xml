@@ -101,7 +101,8 @@
             android:selectAllOnFocus="true"
             android:phoneNumber="true"
             android:id="@+id/timedayEt"
-            android:layout_gravity="bottom" />
+            android:layout_gravity="bottom"
+          />
     </TableRow>
 
 
@@ -128,6 +129,16 @@
             android:phoneNumber="true"
             android:id="@+id/timeEt"
             android:layout_gravity="bottom" />
+        <TextView android:id="@+id/spinnerText"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14dp"></TextView>
+
+        <Spinner android:id="@+id/Spinner01"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="44dp">
+        </Spinner>
     </TableRow>
 
     <TableRow
