@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<title>Page 4</title>
+
+<body bgcolor="#d0d0d0">   
+<table width="1305" height="70" border="0">
+<tr> <td style="background-color:#99bbbb;  "> </td> </tr>
+</table>
+
+<form action="E:\web2\html\page2.html" method="get" style="position:absolute; left:35px; top:25px "/>
+   <input type="submit" value="返回" style="width: 100px; height: 30px; position:absolute; " />
+
+</form>
+
+
+<script language="JavaScript" type="text/javascript">
+     var doctor=[
+     ["口腔科医生A","口腔科医生B","口科医生C","口腔科医生D"],
+     ["外科医生A","外科医生B","外科医生C","外科医生D"],
+     ["产科医生A","产科医生B","产科医生C","产科医生D"],
+     ["内科医生A","内科医生B","内科医生C","内科医生D"]
+     ];
+     function get(){
+         //获得科室下拉框的对象
+         var sltkeshi=document.form1.keshi;
+         //获得医生下拉框的对象
+         var sltdoctor=document.form1.doctor;
+         //得到对应科室的医生数组
+         var keshiDoctor=doctor[sltkeshi.selectedIndex - 1];
+         //清空医生下拉框，仅留提示选项
+         sltdoctor.length=1;
+         //将医生数组中的值填充到医生下拉框中
+         for(var i=0;i<keshiDoctor.length;i++){
+             sltdoctor[i+1]=new Option(keshiDoctor[i],keshiDoctor[i]);
+         }
+     }
+ </script>
+ 
+ <BODY>
+ <FORM  action="E:\web2\html\page5.html" method="get" style="position:absolute; left:500px; top:180px ">
+   <div style="white-space:pre">
+<h3>科    室:<SELECT NAME="keshi" onChange="get()"> </h3> 
+             <OPTION VALUE="0">请选择科室 </OPTION>
+             <OPTION VALUE="口腔科">口腔科 </OPTION>
+             <OPTION VALUE="外科">外科 </OPTION>
+             <OPTION VALUE="妇产科">妇产科 </OPTION>
+             <OPTION VALUE="内科">内科 </OPTION>
+         </SELECT><br>
+医    生:<SELECT NAME="doctor">
+             <OPTION VALUE="0">请选择医生 </OPTION>
+         </SELECT><br>
+日    期:<select name="order_date" style="width: 70px; height: 20px;"> 
+             <option value="2015">2015</option>
+             <option value="2016">2016</option>
+             <option value="2017">2017</option>
+</select><select name="order_date" style="width: 70px; height: 20px;"> 
+             <option value="1">1</option>
+             <option value="2">2</option>
+             <option value="3">3</option>
+             <option value="4">4</option>
+             <option value="5">5</option>
+             <option value="6">6</option>
+             <option value="7">7</option>
+             <option value="8">8</option>
+             <option value="9">9</option>
+             <option value="10">10</option>
+             <option value="11">11</option>
+             <option value="12">12</option>
+</select><select name="order_date" style="width: 70px; height: 20px;"> 
+             <option value="1">1</option>
+             <option value="2">2</option>
+             <option value="3">3</option>
+             <option value="4">4</option>
+             <option value="5">5</option>
+             <option value="6">6</option>
+             <option value="7">7</option>
+             <option value="8">8</option>
+             <option value="9">9</option>
+             <option value="10">10</option>
+             <option value="11">11</option>
+             <option value="12">12</option>
+             <option value="13">13</option>
+             <option value="14">14</option>
+             <option value="15">15</option>
+             <option value="16">16</option>
+             <option value="17">18</option>
+             <option value="19">19</option>
+             <option value="20">20</option>
+             <option value="21">21</option>
+             <option value="22">22</option>
+             <option value="23">23</option>
+             <option value="24">24</option>
+             <option value="25">25</option>
+             <option value="26">26</option>
+             <option value="27">28</option>
+             <option value="28">28</option>
+             <option value="29">29</option>
+             <option value="30">30</option>
+             <option value="31">31</option>
+</select><br>
+时    间: <select name="order_time" style="width: 250px; height: 20px;"> 
+             <option value="morning"> 上午</option>
+             <option value="afternoon"> 下午</option>
+</select><br>
+ <input type="submit" value="Submit"  style="width: 250px; height: 40px;" />
+ </FORM></div>
+ </BODY>
+
+</body>
+</html>
