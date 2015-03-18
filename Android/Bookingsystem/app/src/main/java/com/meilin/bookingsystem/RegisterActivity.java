@@ -1,8 +1,11 @@
 package com.meilin.bookingsystem;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -34,54 +37,33 @@ public class RegisterActivity extends Activity {
     private EditText nameEt = null;
     private EditText passwordEt1 = null;
     private EditText passwordEt2 = null;
+    private static int ret_code = 0;
+    private ProgressDialog pd;
     private String TAG = "RegisterActivity";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_register);
-
-
         mobileEt = (EditText)this .findViewById(R.id.mobleEt);
         cardidEt = (EditText)this .findViewById(R.id.cardidEt);
         nameEt = (EditText)this .findViewById(R.id.nameEt);
         passwordEt1 = (EditText)this .findViewById(R.id.passwordEt1);
         passwordEt2 = (EditText)this .findViewById(R.id.passwordEt2);
     }
-
-
     public void onClickok1(View view) {
-        startActivityForResult(new Intent(RegisterActivity.this, EnterActivity.class), 1);
+        startActivityForResult(new Intent(RegisterActivity.this, LoginActivity.class), 1);
     }
 
-//    public void onClickok2(View view) {
-//        if (SumbitData()) {
-//
-//            startActivityForResult(new Intent(RegisterActivity.this, EnterActivity.class), 1);
-//        }
-//    }
 public void onClickok2(View view) {
     if (SumbitData()) {
         Intent intent = new Intent();
-        intent.setClass(RegisterActivity.this, EnterActivity.class);
+        intent.setClass(RegisterActivity.this, LoginActivity.class);
         Bundle bundle = new Bundle();
         intent.putExtras(bundle);//将Bundle添加到Intent,也可以在Bundle中添加相应数据传递给下个页面,例如：bundle.putString("abc", "bbb");
-
         startActivityForResult(intent, 0);      // 跳转并要求返回值，0代表请求值(可以随便写)
-
     }
 }
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//        if (requestCode == 0 && resultCode == Activity.RESULT_OK) {
-//            Bundle bundle = data.getExtras();
-//            gameView.backString = bundle.getString("aaa");
-//            Toast.makeText(this, "联系方式错误！", Toast.LENGTH_SHORT).show();
-//        }
-
-
     public boolean  SumbitData()
     {
         final String strMobile = mobileEt.getText().toString();
@@ -94,24 +76,22 @@ public void onClickok2(View view) {
             Toast.makeText(this, "联系方式错误！", Toast.LENGTH_SHORT).show();
             return false;
         }
-
+        pd = ProgressDialog.show(RegisterActivity.this, "标题", "加载中，请稍后……");
         new Thread( new Runnable() {
             @Override
             public void run() {
                 String TAG = "one";
                 try {
-
                     // 先封装一个 JSON 对象，使用post发送数据，创建一盒HttpPost对象
                     JSONObject param = new JSONObject();
 //                    PrintWriter out = new PrintWriter(new OutputStreamWriter(connection.getOutputStream(), nameEt));
 //                    out.print(param);
-
                     param.put("user_name", strName);
                     param.put("card_id", strCard);
                     param.put("password1", strPassword1);
                     param.put("password2", strPassword2);
                     param.put("mobile_number", strMobile);
-                    HttpPost request = new HttpPost("http://ajmdit-test.xicp.net/register.php");
+                    HttpPost request = new HttpPost(Utils.strRegisterURL);
 
                     // 绑定到请求 Entry
                     StringEntity se = new StringEntity(param.toString());
@@ -129,23 +109,12 @@ public void onClickok2(View view) {
                     // 得到应答的字符串，这也是一个 JSON 格式保存的数据
                     String retSrc = EntityUtils.toString(httpResponse.getEntity());
                     // 生成 JSON 对象
-                    Log.e(TAG, "ONE");
-                    JSONObject object = new JSONObject(retSrc);
-                    Log.e(TAG, "TWO");
-
-                    String strRetCode = object.get("ret_code").toString();
-
-                    Log.e(TAG, "return");
-                    int iRetCode = Integer.valueOf(strRetCode).intValue();
-
-                    if (iRetCode == 0) {
-
-                        Log.e(TAG, "successful");
-
-                    } else {
-                        Log.e(TAG, "delfault");
-                    }
-
+                    JSONObject result = new JSONObject(retSrc);
+                    Log.e(TAG, "return :111" + httpResponse.getStatusLine().getStatusCode());
+                    String strRetCode = result.get("ret_code").toString();
+                    Log.e(TAG, "return :" + strRetCode);
+                    ret_code = Integer.valueOf(strRetCode).intValue();
+                    handler.sendEmptyMessage(0);// 执行耗时的方法之后发送消给handler
                 } catch (UnsupportedEncodingException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
@@ -163,26 +132,40 @@ public void onClickok2(View view) {
 
         return true;
     }
-
+    private Handler handler =new Handler() {
+        @Override
+        public void handleMessage(Message msg) {// handler接收到消息后就会执行此方法
+            super.handleMessage(msg);
+            pd.dismiss();// 关闭ProgressDialog
+            if(ret_code!=0)
+            {
+                Toast.makeText(RegisterActivity.this, "注册失败！", Toast.LENGTH_SHORT).show();
+                Log.e(TAG, " register failed!");
+            } else {
+                Intent intent = new Intent();
+                intent.setClass(RegisterActivity.this, LoginActivity.class);
+                startActivityForResult(intent, ret_code);
+                Toast.makeText(RegisterActivity.this, "注册成功！", Toast.LENGTH_SHORT).show();
+                Log.e(TAG, " register successfully!");
+            }
+        }
+    };
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 }

@@ -60,15 +60,21 @@
             android:text="姓  名："
             android:gravity="right"
             android:textSize="10pt" />
-
         <EditText
             android:id="@+id/nameEt"
-            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-
+            android:layout_width="wrap_content"
             android:selectAllOnFocus="true"
-            android:layout_column="1"
             android:layout_gravity="bottom" />
+        <!--<EditText-->
+            <!--android:id="@+id/nameEt"-->
+            <!--android:layout_width="fill_parent"-->
+            <!--android:layout_height="wrap_content"-->
+
+            <!--android:selectAllOnFocus="true"-->
+            <!--android:layout_column="1"-->
+            <!--android:layout_gravity="bottom" />-->
+
     </TableRow>
 
     <TableRow
@@ -94,11 +100,17 @@
             android:gravity="right" />
         <EditText
             android:id="@+id/cardidEt"
-            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:password="true"
-            android:layout_gravity="bottom"
-        />
+            android:layout_width="wrap_content"
+            android:selectAllOnFocus="true"
+            android:layout_gravity="bottom" />
+        <!--<EditText-->
+            <!--android:id="@+id/cardidEt"-->
+            <!--android:layout_width="fill_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:password="true"-->
+            <!--android:layout_gravity="bottom"/>-->
+
     </TableRow>
 
     <TableRow
@@ -119,10 +131,10 @@
         <EditText
             android:id="@+id/mobleEt"
             android:layout_height="wrap_content"
-            android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
             android:selectAllOnFocus="true"
-            android:phoneNumber="true"
-            android:layout_gravity="bottom" />
+            android:layout_gravity="bottom"
+            android:phoneNumber="true"/>
     </TableRow>
     <TableRow
         android:id="@+id/tableRow4"
@@ -143,11 +155,17 @@
         <EditText
             android:id="@+id/passwordEt1"
             android:layout_height="wrap_content"
-            android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
             android:selectAllOnFocus="true"
-            android:phoneNumber="true"
-            android:layout_gravity="bottom"
-            />
+            android:layout_gravity="bottom" />
+        <!--<EditText-->
+            <!--android:id="@+id/passwordEt1"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_width="fill_parent"-->
+            <!--android:selectAllOnFocus="true"-->
+            <!--android:password="true"-->
+            <!--android:layout_gravity="bottom"-->
+            <!--/>-->
     </TableRow>
 
     <TableRow
@@ -162,12 +180,18 @@
             android:text="确认密码："
             android:textSize="10pt"
             android:gravity="right" />
+        <!--<EditText-->
+            <!--android:id="@+id/passwordEt2"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_width="fill_parent"-->
+            <!--android:selectAllOnFocus="true"-->
+            <!--android:layout_gravity="bottom" />-->
         <EditText
             android:id="@+id/passwordEt2"
             android:layout_height="wrap_content"
-            android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
             android:selectAllOnFocus="true"
-            android:phoneNumber="true"
+            android:password="true"
             android:layout_gravity="bottom"
           />
     </TableRow>

@@ -8,7 +8,7 @@
         android:theme="@style/AppTheme" >
 
         <activity
-            android:name=".EnterActivity"
+            android:name=".LoginActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="com.litreily.EnterActivity"/>
@@ -28,7 +28,7 @@
         </activity>
 
         <activity
-            android:name=".BookingActivity"
+            android:name=".OrderActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="com.litreily.BookingActivity"/>
@@ -37,7 +37,7 @@
         </activity>
 
         <activity
-            android:name=".StatusActivity"
+            android:name=".QuerystatusActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="com.litreily.StatusActivity"/>
