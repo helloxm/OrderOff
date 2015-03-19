@@ -1,13 +1,8 @@
 <?php 
 include("connect.php");
 
-$json_string = file_get_contents("php://input");
-$json_string=stripslashes($json_string);
 
-$users = json_decode($json_string, true);
-$temId = $users['card_id'];
-
-$result=$db->query("SELECT card_id, doctor_name, order_date, order_time,status FROM orderinfo where card_id='$temId'");
+$result=$db->query("SELECT doctor_code, dept_code, select_date, select_timeM, select_timeA FROM orderbaseinfo");
 
 $arr =  array();
 while($row = $result->fetch_assoc()){
