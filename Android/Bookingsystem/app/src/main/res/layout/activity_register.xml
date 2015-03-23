@@ -3,7 +3,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
-
+android:layout_centerHorizontal="true"
     >
 
 
@@ -66,15 +66,6 @@
             android:layout_width="wrap_content"
             android:selectAllOnFocus="true"
             android:layout_gravity="bottom" />
-        <!--<EditText-->
-            <!--android:id="@+id/nameEt"-->
-            <!--android:layout_width="fill_parent"-->
-            <!--android:layout_height="wrap_content"-->
-
-            <!--android:selectAllOnFocus="true"-->
-            <!--android:layout_column="1"-->
-            <!--android:layout_gravity="bottom" />-->
-
     </TableRow>
 
     <TableRow
@@ -132,7 +123,7 @@
             android:id="@+id/mobleEt"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:selectAllOnFocus="true"
+            android:selectAllOnFocus="false"
             android:layout_gravity="bottom"
             android:phoneNumber="true"/>
     </TableRow>
@@ -156,8 +147,9 @@
             android:id="@+id/passwordEt1"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:selectAllOnFocus="true"
-            android:layout_gravity="bottom" />
+            android:selectAllOnFocus="false"
+            android:layout_gravity="bottom"
+            android:password="true" />
         <!--<EditText-->
             <!--android:id="@+id/passwordEt1"-->
             <!--android:layout_height="wrap_content"-->
@@ -190,7 +182,7 @@
             android:id="@+id/passwordEt2"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:selectAllOnFocus="true"
+            android:selectAllOnFocus="false"
             android:password="true"
             android:layout_gravity="bottom"
           />

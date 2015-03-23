@@ -6,20 +6,25 @@
     android:layout_height="match_parent"
     android:shrinkColumns="*"
     android:stretchColumns="*"
-    android:collapseColumns="*"
-    >
+    android:collapseColumns="*"    >
     <TableLayout
         android:orientation="vertical"
         android:id="@+id/table"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent" >
 
+        <!--<ListView xmlns:android="http://schemas.android.com/apk/res/android"-->
+            <!--android:id="@android:id/list"-->
+            <!--android:layout_width="fill_parent"-->
+            <!--android:layout_height="fill_parent"-->
+
+            <!-->-->
+        <!--</ListView>-->
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:background="#ff767eff">
-
             <Button
                 android:id="@+id/bck"
                 android:layout_width="wrap_content"
@@ -28,17 +33,13 @@
                 android:textSize="18sp"
                 android:background="#ff75ff55"
                 android:onClick="onClickok1"/>
-
             <TextView
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:text="预约状态"
                 android:textSize="18sp"
-                android:gravity="center"
-
-                />
-
+                android:gravity="center"  />
             <Button
                 android:id="@+id/back"
                 android:layout_width="wrap_content"
@@ -48,11 +49,21 @@
                 android:background="#ff75ff55"
                 android:onClick="onClickok2"/>
         </LinearLayout>
-
         <TableRow android:gravity="right">
             <View android:layout_width="1dip" android:background="#FF909090" />
             <TextView
-                android:id="@+id/tv1"
+                android:id="@+id/card_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textSize="35px"
+                android:text="卡  号"
+                />
+            <View android:layout_width="1dip"
+                android:background="#FF909090" />
+            <TextView
+                android:id="@+id/order_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -60,10 +71,12 @@
                 android:text="预约时间"
                 android:gravity="center"
                 android:paddingTop="10dp" />
-            <View android:layout_width="1dip" android:background="#FF909090"
+            <View android:layout_width="1dip"
+                android:id="@+id/timeEt_edit"
+                android:background="#FF909090"
                 android:paddingTop="10dp" />
             <TextView
-                android:id="@+id/tv2"
+                android:id="@+id/doctor_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -71,16 +84,20 @@
                 android:textSize="35px"
                 android:text="医生姓名"
                 />
-            <View android:layout_width="1dip" android:background="#FF909090" />
+            <View android:layout_width="1dip"
+                android:id="@+id/doctorEt_edit"
+                android:background="#FF909090" />
             <TextView
-                android:id="@+id/tv3"
+                android:id="@+id/statusEt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:textSize="35px"
                 android:text="状态" />
-            <View android:layout_width="1dip" android:background="#FF909090" />
+            <View android:layout_width="1dip"
+                android:id="@+id/statusEt_edit"
+                android:background="#FF909090" />
         </TableRow>
 
     </TableLayout>

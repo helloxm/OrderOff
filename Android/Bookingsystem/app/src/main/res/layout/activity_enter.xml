@@ -71,24 +71,19 @@
             android:text="用 户："
             android:textSize="20dp" />
         <EditText
-            android:id="@+id/username_edit"
-            android:layout_height="wrap_content"
-            android:layout_width="fill_parent"
-            android:selectAllOnFocus="true"
-            android:layout_gravity="bottom"
-            android:layout_toRightOf="@+id/login_user_input"
-            android:layout_toEndOf="@+id/login_user_input" />
-        <!--<TextView android:id="@+id/cardEtt"-->
+        android:id="@+id/username_edit"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:selectAllOnFocus="true"
+        android:layout_gravity="bottom"
+        android:layout_toRightOf="@+id/login_user_input"
+        android:layout_toEndOf="@+id/login_user_input" />
+        <!--<Spinner android:id="@+id/Spinner01"-->
             <!--android:layout_width="fill_parent"-->
-            <!--android:layout_height="wrap_content"></TextView>-->
-        <Spinner android:id="@+id/Spinner01"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/username_edit"
-            android:layout_alignBottom="@+id/username_edit"
-          ></Spinner>
-
-
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignLeft="@+id/username_edit"-->
+            <!--android:layout_alignBottom="@+id/username_edit"-->
+            <!--></Spinner>-->
 
         <TextView
             android:id="@+id/login_password_input"

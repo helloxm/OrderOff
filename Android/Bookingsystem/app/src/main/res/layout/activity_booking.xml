@@ -40,21 +40,22 @@
         android:layout_height="wrap_content" >
 
         <TextView
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="16dp"
             android:layout_marginBottom="15dp"
-            android:id="@+id/textView1"
+            android:id="@+id/classEt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="科 室："
             android:gravity="right"
             android:textSize="10pt" />
-        <EditText
+
+        <Spinner android:id="@+id/Spinner02"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/classEt_edit"
+            android:layout_alignBottom="@+id/classEt_edit"
+            android:layout_gravity="bottom"></Spinner>
 
-            android:selectAllOnFocus="true"
-            android:id="@+id/classEt"
-            android:layout_gravity="bottom" />
     </TableRow>
 
     <TableRow
@@ -64,7 +65,7 @@
 
         <TextView
 
-            android:id="@+id/textView2"
+            android:id="@+id/doctorEt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="医 生："
@@ -72,12 +73,12 @@
             android:layout_marginTop="16dp"
             android:layout_marginBottom="15dp"
             android:gravity="right" />
-        <EditText
+        <Spinner android:id="@+id/Spinner03"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:password="true"
-            android:id="@+id/doctorEt"
-            android:layout_gravity="bottom" />
+            android:layout_alignLeft="@+id/doctorEt_edit"
+            android:layout_alignBottom="@+id/doctorEt_edit"
+            android:layout_gravity="bottom"></Spinner>
     </TableRow>
     <TableRow
         android:id="@+id/tableRow3"
@@ -87,22 +88,19 @@
         <TextView
             android:layout_marginTop="16dp"
             android:layout_marginBottom="15dp"
-            android:id="@+id/textView4"
+            android:id="@+id/timedayEt"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="预约日期："
             android:textSize="10pt"
 
             android:gravity="right" />
-        <EditText
-            android:layout_height="wrap_content"
+        <Spinner android:id="@+id/Spinner04"
             android:layout_width="fill_parent"
-            android:inputType="date"
-            android:selectAllOnFocus="true"
-            android:phoneNumber="true"
-            android:id="@+id/timedayEt"
-            android:layout_gravity="bottom"
-          />
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/timedayEt_edit"
+            android:layout_alignBottom="@+id/timedayEt_edit"
+            android:layout_gravity="bottom"></Spinner>
     </TableRow>
 
 
@@ -114,21 +112,19 @@
         <TextView
             android:layout_marginTop="16dp"
             android:layout_marginBottom="15dp"
-            android:id="@+id/textView3"
+            android:id="@+id/timeEt"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="预约时间："
             android:textSize="10pt"
 
             android:gravity="right" />
-        <EditText
-            android:layout_height="wrap_content"
+        <Spinner android:id="@+id/Spinner05"
             android:layout_width="fill_parent"
-            android:inputType="time"
-            android:selectAllOnFocus="true"
-            android:phoneNumber="true"
-            android:id="@+id/timeEt"
-            android:layout_gravity="bottom" />
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/timeEt_edit"
+            android:layout_alignBottom="@+id/timeEt_edit"
+            android:layout_gravity="bottom"></Spinner>
         <TextView android:id="@+id/spinnerText"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
