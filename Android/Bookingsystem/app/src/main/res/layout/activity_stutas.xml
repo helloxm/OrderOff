@@ -61,17 +61,6 @@
                 android:text="卡  号"
                 />
             <View android:layout_width="1dip"
-                android:background="#FF909090" />
-            <TextView
-                android:id="@+id/order_date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textSize="35px"
-                android:text="预约时间"
-                android:gravity="center"
-                android:paddingTop="10dp" />
-            <View android:layout_width="1dip"
                 android:id="@+id/timeEt_edit"
                 android:background="#FF909090"
                 android:paddingTop="10dp" />
@@ -84,6 +73,29 @@
                 android:textSize="35px"
                 android:text="医生姓名"
                 />
+            <View android:layout_width="1dip"
+                android:background="#FF909090" />
+            <TextView
+                android:id="@+id/order_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="35px"
+                android:text="预约日期"
+                android:gravity="center"
+                android:paddingTop="10dp" />
+            <View android:layout_width="1dip"
+                android:background="#FF909090" />
+            <TextView
+                android:id="@+id/order_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="35px"
+                android:text="预约时间"
+                android:gravity="center"
+                android:paddingTop="10dp" />
+
             <View android:layout_width="1dip"
                 android:id="@+id/doctorEt_edit"
                 android:background="#FF909090" />
