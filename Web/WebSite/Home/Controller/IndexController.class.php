@@ -38,7 +38,7 @@ class IndexController extends Controller {
     	
 		$orderinfo = M('orderinfo', '', 'mysql://root:123456@localhost:3306/offorder#utf8'); 
 		$data['card_id'] = $_POST['user'];
-		$resutdata = $orderinfo->where($condition2)->select();
+		$resutdata = $orderinfo->where($data)->select();
 
 		$this->assign('list', $resutdata);
 		$this->display("status");
