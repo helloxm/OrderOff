@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tableLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:shrinkColumns="*"
+    android:stretchColumns="*"
+    android:collapseColumns="*"
+    android:clickable="false">
+
+        <!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+            <!--android:layout_width="fill_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:background="#ff767eff">-->
+
+            <!--<Button-->
+                <!--android:id="@+id/bck"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="返回"-->
+                <!--android:textSize="18sp"-->
+                <!--android:background="#ff75ff55"-->
+                <!--android:onClick="onClickok1"/>-->
+
+            <!--<TextView-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_weight="1"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="预约状态"-->
+                <!--android:textSize="18sp"-->
+                <!--android:gravity="center"-->
+
+                <!--/>-->
+
+            <!--<Button-->
+                <!--android:id="@+id/back"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="预约"-->
+                <!--android:textSize="18sp"-->
+                <!--android:background="#ff75ff55"-->
+                <!--android:onClick="onClickok2"/>-->
+        <!--</LinearLayout>-->
+
+
+
+        <!--<TableRow android:gravity="right">-->
+            <!--<View android:layout_width="1dip" android:background="#FF909090" />-->
+            <!--<TextView-->
+                <!--android:id="@+id/card_id"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_weight="1"-->
+                <!--android:gravity="center"-->
+                <!--android:textSize="35px"-->
+                <!--android:text="卡号" />-->
+            <!--<View android:layout_width="1dip" android:background="#FF909090" />-->
+            <TextView
+                android:id="@+id/doctorname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="35px"
+                android:text="医生姓名"
+                android:gravity="center"
+
+        android:paddingTop="10dp" />
+        <EditText
+            android:id="@+id/doctor_name"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_toRightOf="@+id/doctorname"
+            android:layout_toLeftOf="@+id/statuss"
+            android:layout_toStartOf="@+id/statuss" />
+
+            <!--<View android:layout_width="1dip" android:background="#FF909090" />-->
+            <TextView
+                android:id="@+id/ordertime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textSize="35px"
+                android:text="预约时间"
+                android:layout_below="@+id/doctor_name"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="39dp" />
+        <EditText
+            android:id="@+id/order_time"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_alignTop="@+id/ordertime"
+            android:layout_toRightOf="@+id/ordertime"
+            android:layout_toLeftOf="@+id/status"
+            android:layout_toStartOf="@+id/status" />
+
+
+
+            <TextView
+                android:id="@+id/statuss"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textSize="35px"
+                android:text="状态"
+                android:layout_column="9"
+                android:layout_alignBottom="@+id/doctorname"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="126dp"
+                android:layout_marginEnd="126dp" />
+        <EditText
+            android:id="@+id/status"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_alignTop="@+id/statuss"
+            android:layout_toRightOf="@+id/doctor_name"
+            android:layout_toEndOf="@+id/doctor_name"
+            android:layout_marginLeft="40dp"
+            android:layout_marginStart="40dp" />
+
+
+
+
+
+
+</RelativeLayout>
+
+<!-- From: file:/C:/Users/meilin/AndroidStudioProjects/Bookingsystem/app/src/main/res/layout/activity_stutas.xml -->
