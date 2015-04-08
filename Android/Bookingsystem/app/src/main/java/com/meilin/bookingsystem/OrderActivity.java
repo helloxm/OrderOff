@@ -1,7 +1,10 @@
 package com.meilin.bookingsystem;
 
 import android.app.Activity;
+import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -13,8 +16,11 @@ import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import org.apache.http.HttpResponse;
@@ -32,6 +38,7 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.util.Calendar;
 
 /**
  * Created by meilin on 2015/3/8.
@@ -49,32 +56,40 @@ public class OrderActivity extends Activity {
     private Spinner spinner2;
     private Spinner spinner3;
     private Spinner spinner4;
+    private Button dateBtn = null;
+    private Button timeBtn = null;
+
+    private EditText et1=null;
+    private EditText et2=null;
+
+    private final static int DATE_DIALOG = 0;
+    private final static int TIME_DIALOG = 1;
+
+    private Calendar c = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_booking);
-
-        classEt = (EditText)this .findViewById(R.id.classEt_edit);
-        doctorEt = (EditText)this .findViewById(R.id.doctorEt_edit);
-        timedayEt = (EditText)this .findViewById(R.id.timedayEt_edit);
-        timeEt = (EditText)this .findViewById(R.id.timeEt_edit);
-
-        spinner1=(Spinner) findViewById(R.id.Spinner02);
-        spinner2=(Spinner) findViewById(R.id.Spinner03);
-        spinner3=(Spinner) findViewById(R.id.Spinner04);
-        spinner4=(Spinner) findViewById(R.id.Spinner05);
-        final String arr1[]=new String[]{
-              "妇产科","儿科","内科",
-              };
-        final String arr2[]=new String[]{
-               "001","002","003",
+        classEt = (EditText) this.findViewById(R.id.classEt_edit);
+        doctorEt = (EditText) this.findViewById(R.id.doctor_edit);
+        timedayEt = (EditText) this.findViewById(R.id.timedayEt_edit);
+        timeEt = (EditText) this.findViewById(R.id.time_edit);
+        spinner1 = (Spinner) findViewById(R.id.Spinner02);
+        spinner2 = (Spinner) findViewById(R.id.Spinner03);
+        spinner3 = (Spinner) findViewById(R.id.Spinner04);
+        spinner4 = (Spinner) findViewById(R.id.Spinner05);
+        final String arr1[] = new String[]{
+                "妇产科", "儿科", "内科",
         };
-        final String arr3[]=new String[]{
-                "2015-03-18","2015-03-19","2015-03-20",
+        final String arr2[] = new String[]{
+                "001", "002", "003",
         };
-        final String arr4[]=new String[]{
-                "10:00am","11:00am","12:00am",
+        final String arr3[] = new String[]{
+                "2015-03-18", "2015-03-19", "2015-03-20",
+        };
+        final String arr4[] = new String[]{
+                "10:00am", "11:00am", "12:00am",
         };
         ArrayAdapter<String> arrayAdapter1 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, arr1);
         spinner1.setAdapter(arrayAdapter1);
@@ -84,68 +99,59 @@ public class OrderActivity extends Activity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view,
                                        int position, long id) {
-                Spinner spinner=(Spinner) parent;
+                Spinner spinner = (Spinner) parent;
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-
             }
         });
         ArrayAdapter<String> arrayAdapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, arr2);
         spinner2.setAdapter(arrayAdapter2);
-       // Toast.makeText(getApplicationContext(), "main Thread"+spinner2.getItemIdAtPosition(spinner2.getSelectedItemPosition()), Toast.LENGTH_LONG).show();
+        // Toast.makeText(getApplicationContext(), "main Thread"+spinner2.getItemIdAtPosition(spinner2.getSelectedItemPosition()), Toast.LENGTH_LONG).show();
         //注册事件
         spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view,
                                        int position, long id) {
-                Spinner spinner=(Spinner) parent;
+                Spinner spinner = (Spinner) parent;
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-
             }
         });
         ArrayAdapter<String> arrayAdapter3 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, arr3);
         spinner3.setAdapter(arrayAdapter3);
-       // Toast.makeText(getApplicationContext(), "main Thread"+spinner3.getItemIdAtPosition(spinner3.getSelectedItemPosition()), Toast.LENGTH_LONG).show();
+        // Toast.makeText(getApplicationContext(), "main Thread"+spinner3.getItemIdAtPosition(spinner3.getSelectedItemPosition()), Toast.LENGTH_LONG).show();
         //注册事件
         spinner3.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view,
                                        int position, long id) {
-                Spinner spinner=(Spinner) parent;
-
+                Spinner spinner = (Spinner) parent;
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-
             }
         });
         ArrayAdapter<String> arrayAdapter4 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, arr4);
         spinner4.setAdapter(arrayAdapter4);
-      //  Toast.makeText(getApplicationContext(), "main Thread"+spinner4.getItemIdAtPosition(spinner4.getSelectedItemPosition()), Toast.LENGTH_LONG).show();
+        //  Toast.makeText(getApplicationContext(), "main Thread"+spinner4.getItemIdAtPosition(spinner4.getSelectedItemPosition()), Toast.LENGTH_LONG).show();
         //注册事件
         spinner4.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view,
                                        int position, long id) {
-                Spinner spinner=(Spinner) parent;
-
+                Spinner spinner = (Spinner) parent;
             }
-            @Override
+           @Override
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
-
     }
-    public void onClickok1(View view) {
-
+ public void onClickok1(View view) {
             startActivityForResult(new Intent(OrderActivity.this, QuerystatusActivity.class), 1);
         }
-
-
-    public void onClickok2(View view) {
+  public void onClickok2(View view) {
       SumbitData();
     }
 

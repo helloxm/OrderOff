@@ -2,43 +2,31 @@
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical"
-
-    >
-
+    android:orientation="vertical"    >
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:background="#ff5e81ac"
-        >
-
+        android:background="#ff5e81ac"        >
         <Button
             android:id="@+id/back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="返回"
             android:textSize="18sp"
-            android:onClick="onClickok1"
-            />
-
+            android:onClick="onClickok1"           />
         <TextView
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:text="预约"
             android:textSize="25sp"
-            android:gravity="center"
-            />
-
-
-    </LinearLayout>
-
+            android:gravity="center"            />
+</LinearLayout>
     <TableRow
         android:id="@+id/tableRow1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" >
-
         <TextView
             android:layout_marginTop="16dp"
             android:layout_marginBottom="15dp"
@@ -48,23 +36,18 @@
             android:text="科 室："
             android:gravity="right"
             android:textSize="10pt" />
-
         <Spinner android:id="@+id/Spinner02"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/classEt_edit"
             android:layout_alignBottom="@+id/classEt_edit"
             android:layout_gravity="bottom"></Spinner>
-
     </TableRow>
-
     <TableRow
         android:id="@+id/tableRow2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" >
-
         <TextView
-
             android:id="@+id/doctorEt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -76,15 +59,14 @@
         <Spinner android:id="@+id/Spinner03"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/doctorEt_edit"
-            android:layout_alignBottom="@+id/doctorEt_edit"
+            android:layout_alignLeft="@+id/doctor_edit"
+            android:layout_alignBottom="@+id/doctor_edit"
             android:layout_gravity="bottom"></Spinner>
     </TableRow>
     <TableRow
         android:id="@+id/tableRow3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" >
-
         <TextView
             android:layout_marginTop="16dp"
             android:layout_marginBottom="15dp"
@@ -93,7 +75,6 @@
             android:layout_height="wrap_content"
             android:text="预约日期："
             android:textSize="10pt"
-
             android:gravity="right" />
         <Spinner android:id="@+id/Spinner04"
             android:layout_width="fill_parent"
@@ -102,13 +83,10 @@
             android:layout_alignBottom="@+id/timedayEt_edit"
             android:layout_gravity="bottom"></Spinner>
     </TableRow>
-
-
-    <TableRow
+ <TableRow
         android:id="@+id/tableRo4w"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" >
-
         <TextView
             android:layout_marginTop="16dp"
             android:layout_marginBottom="15dp"
@@ -117,41 +95,27 @@
             android:layout_height="wrap_content"
             android:text="预约时间："
             android:textSize="10pt"
-
             android:gravity="right" />
         <Spinner android:id="@+id/Spinner05"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/timeEt_edit"
-            android:layout_alignBottom="@+id/timeEt_edit"
+            android:layout_alignLeft="@+id/time_edit"
+            android:layout_alignBottom="@+id/time_edit"
             android:layout_gravity="bottom"></Spinner>
-        <TextView android:id="@+id/spinnerText"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:textSize="14dp"></TextView>
-
-        <Spinner android:id="@+id/Spinner01"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:textSize="44dp">
-        </Spinner>
     </TableRow>
 
     <TableRow
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
         <Button
-
-            android:gravity="center"
-
-            android:layout_width="269dp"
-            android:layout_height="wrap_content"
-            android:text="提交"
-            android:layout_column="1"
-            android:layout_gravity="bottom"
-            android:onClick="onClickok2"
-            android:background="#ff83ff57" />
+                android:gravity="center"
+                android:layout_width="240dp"
+                android:layout_height="wrap_content"
+                android:text="提交"
+                android:layout_column="1"
+                android:layout_gravity="bottom"
+                android:onClick="onClickok2"
+                android:background="#ff83ff57" />
     </TableRow>
-
 </TableLayout>
