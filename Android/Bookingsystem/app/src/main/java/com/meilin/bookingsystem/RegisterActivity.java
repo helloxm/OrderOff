@@ -92,7 +92,6 @@ public void onClickok2(View view) {
                     param.put("password2", strPassword2);
                     param.put("mobile_number", strMobile);
                     HttpPost request = new HttpPost(Utils.strRegisterURL);
-
                     // 绑定到请求 Entry
                     StringEntity se = new StringEntity(param.toString());
                     request.setEntity(se);  //设置请求参数setEntity（）

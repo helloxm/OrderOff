@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tableLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:shrinkColumns="*"
+    android:stretchColumns="*"
+    android:collapseColumns="*"
+    android:clickable="false">
+
+    <!--<Button-->
+    <!--android:id="@+id/bck"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="返回"-->
+    <!--android:textSize="18sp"-->
+    <!--android:background="#ff75ff55"-->
+    <!--android:onClick="onClickok1"-->
+    <!--android:layout_alignParentTop="true"-->
+    <!--android:layout_alignParentLeft="true"-->
+    <!--android:layout_alignParentStart="true" />-->
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content" -->
+    <!--android:text="预约状态"-->
+    <!--android:id="@+id/"-->
+    <!--android:layout_alignParentTop="true"-->
+    <!--android:layout_alignBottom="@+id/bck"-->
+    <!--android:layout_toLeftOf="@+id/Ordertime"-->
+    <!--android:layout_toStartOf="@+id/Ordertime" />-->
+    <!--<TextView-->
+    <!--android:layout_width="0dp"-->
+    <!--android:layout_weight="1"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="预约状态"-->
+    <!--android:textSize="18sp"-->
+    <!--android:layout_column="2"-->
+    <!--android:id="@+id/textView"-->
+    <!--android:layout_marginTop="67dp"-->
+    <!--android:layout_below="@+id/back"-->
+    <!--android:layout_toStartOf="@+id/back"-->
+    <!--android:layout_toLeftOf="@+id/back" />-->
+    <!--<Button-->
+    <!--android:id="@+id/back"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="预约"-->
+    <!--android:textSize="18sp"-->
+    <!--android:background="#ff75ff55"-->
+    <!--android:onClick="onClickok2"-->
+    <!--android:layout_column="3"-->
+    <!--android:layout_alignParentTop="true"-->
+    <!--android:layout_alignParentRight="true"-->
+    <!--android:layout_alignParentEnd="true" />-->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Name"
+        android:text="医生:  "
+        android:textSize="15dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/time"
+        android:layout_alignEnd="@+id/time" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/DoctorName"
+        android:layout_toRightOf="@+id/Name" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/time"
+        android:text="预约时间:  "
+        android:textSize="15dp"
+        android:layout_below="@+id/status" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Ordertime"
+        android:layout_below="@+id/status"
+        android:layout_toRightOf="@+id/time"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/status"
+        android:text="状态"
+        android:textSize="15dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="60dp"
+        android:layout_marginEnd="60dp"
+        android:layout_below="@+id/DoctorName"
+        android:paddingRight="40dp"
+        android:paddingLeft="40dp"/>
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:id="@+id/Status"-->
+    <!--android:layout_alignRight="@+id/status"-->
+    <!--android:layout_below="@+id/DoctorName"/>-->
+</RelativeLayout>
